@@ -36,7 +36,10 @@ function on_click(event) {
         destination.style.left = coor[0] + mapX + 'px';
         destination.style.top = coor[1] + mapY + 'px';
         hasClicked = false;
-        alert(get_distance(pin.offsetLeft, pin.offsetTop, destination.offsetLeft, destination.offsetTop));
+        distance = get_distance(pin.offsetLeft, pin.offsetTop, destination.offsetLeft, destination.offsetTop);
+        document.getElementById("distance").innerHTML = distance[0];
+        document.getElementById("deltaX").innerHTML = distance[1];
+        document.getElementById("deltaY").innerHTML = distance[2];
     }
 }
 
@@ -61,5 +64,7 @@ function get_distance(x1, y1, x2, y2) {
     line.style.transform = 'rotate(' + (Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI) + 'deg)';
     distanceInMM = distance * mm_per_pixel;
     distanceInDegrees = (distanceInMM * degree_per_mm).toPrecision(5);
-    return distanceInDegrees;
+    deltaX = Math.abs((x2 - x1) * mm_per_pixel * degree_per_mm).toPrecision(5)
+    deltaY = Math.abs((y2 - y1) * mm_per_pixel * degree_per_mm).toPrecision(5)
+    return [distanceInDegrees, deltaX, deltaY];
 }

@@ -23,10 +23,17 @@
       <div class="map" id="map">
         <img src="img/image.png" alt=""/>
       </div>
-      <div class="text-light">
-        <p>Made by FRC Shao Yang</p>
-        <p>github.com/sychai271</p>
-        Wheel Diameter: <input type="text" id="input" style="background-color:lightslategray"> mm
+      <div class="text-light justify-content-between d-sm-flex align-items-center">
+        <div>
+          <p>Made by FRC Shao Yang</p>
+          <p>github.com/sychai271</p>
+          Wheel Diameter: <input type="text" id="input" style="background-color:white" class="text-dark"> mm
+        </div>
+        <div id="measurements">
+          distance: <span id="distance"></span>
+          <br>deltaX: <span id="deltaX"></span> 
+          <br>deltaY: <span id="deltaY"></span> 
+        </div>
       </div>
       <div class="pin" id="pin">
         <i class="fa-solid fa-location-pin"></i>
